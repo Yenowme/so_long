@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 12:02:08 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/12 17:27:25 by jeong-yena       ###   ########.fr       */
+/*   Created: 2022/01/12 18:21:47 by jeong-yena        #+#    #+#             */
+/*   Updated: 2022/01/12 22:09:38 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#ifndef MAP_H
+# define MAP_H
 
-void	error_exit(char *str)
+typedef struct s_solong	t_solong;
+
+typedef struct s_map
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(str, 2);
-	exit(1);
-}
+	char	**map;
+	int		rows;
+	int		cols;
+}				t_map;
 
-int	main(int argc, char **argv)
-{
-	t_solong	so_long;
+int		valid_map_check_exit(t_solong *so_long, int rd_line, char *line);
+void	valid_extention(char *file, char *ext);
+int		is_valid_map_asset(char c);
+void	map_parse(t_solong *so_long, char *file);
 
-	if (argc != 2)
-		error_exit("Use one .ber file\n");
-	map_parse(&so_long, argv[1]);
-}
+#endif

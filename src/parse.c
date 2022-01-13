@@ -6,24 +6,79 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:27:31 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/11 18:49:41 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/13 14:09:00 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/so_long.h"
+#include "../include/so_long.h"
 
-int	is_map_valid(char *file)
+void	cnt_map_size(t_solong *so_long, char *file)
 {
-	//확장자 체크
-	//출구 체크
+	char	*line;
+	int		rd_line;
+	int		gnl_rt;
+	int		is_exit;
+	int		fd;
+
+	fd = open_file(file);
+	is_exit = FALSE;
+	gnl_rt = get_next_line(fd, &line);
+	so_long->map.rows = 0;
+	so_long->map.cols = ft_strlen(line);
+	while (gnl_rt > 0)
+	{
+		rd_line = ft_strlen(line);
+		so_long->map.rows++;
+		if (valid_map_check_exit(so_long, rd_line, line))
+			is_exit = TRUE;
+		free(line);
+		gnl_rt = get_next_line(fd, &line);
+	}
+	if (gnl_rt == -1)
+		error_exit("file read err.\n");
+	if (!is_exit)
+		error_exit("No exits on the map");
+	close(fd);
 }
 
-void	map_parse(t_solong so_long, char *file)
+void	malloc_map(t_solong *so_long)
 {
-	int	fd;
+	int	i;
 
-	if(!is_map_valid(file))
+	so_long->map.map = (char **)malloc(sizeof(char *) * (so_long->map.rows));
+	i = 0;
+	while (i < so_long->map.rows)
 	{
-		error_exit("Map is not valid");
+		so_long->map.map[i] = (char *)malloc((so_long->map.cols) + 1);
+		i++;
 	}
+}
+
+void	save_map(t_solong *so_long, char *file)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	fd = open_file(file);
+	i = 0;
+	while (i < so_long->map.rows)
+	{
+		if (get_next_line(fd, &line) == -1)
+			error_exit("file read err.\n");
+		ft_strlcpy(so_long->map.map[i], line, so_long->map.cols);
+		printf("map: %s\n", so_long->map.map[i]);
+		free(line);
+		i++;
+	}
+	close(fd);
+}
+
+void	map_parse(t_solong *so_long, char *file)
+{
+	valid_extention(file, MAP_EXTENTION);
+	cnt_map_size(so_long, file);
+	malloc_map(so_long);
+	save_map(so_long, file);
+	printf("rows %d, cols %d\n", so_long->map.rows, so_long->map.cols);
 }
