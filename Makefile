@@ -6,7 +6,7 @@
 #    By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:54:27 by jeong-yena        #+#    #+#              #
-#    Updated: 2022/01/12 23:54:23 by jeong-yena       ###   ########.fr        #
+#    Updated: 2022/01/14 19:50:19 by jeong-yena       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,11 +50,11 @@ all : $(NAME)
 clean :
 	make -C $(LIBFT_DIR) clean
 	make -C $(MLX_DIR) clean
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS) a.out.dSYM
 
 fclean : clean
 	make -C $(LIBFT_DIR) fclean
-	$(RM) $(NAME) $(NAME_BONUS)
+	$(RM) $(NAME) $(NAME_BONUS) a.out.dSYM
 
 re : fclean all
 
