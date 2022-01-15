@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:27:31 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/13 20:34:59 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/14 19:55:05 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,4 @@ void	map_parse(t_solong *so_long, char *file)
 	cnt_map_size(so_long, file);
 	malloc_map(so_long);
 	save_map(so_long, file);
-
-	printf("rows %d, cols %d\n", so_long->map.rows, so_long->map.cols);
-	printf("col %d\n", so_long->map.collect.top);
 }

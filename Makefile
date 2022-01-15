@@ -6,7 +6,7 @@
 #    By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:54:27 by jeong-yena        #+#    #+#              #
-#    Updated: 2022/01/14 19:50:19 by jeong-yena       ###   ########.fr        #
+#    Updated: 2022/01/15 19:20:52 by jeong-yena       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ MLX_DIR					= ./mlx/
 INCS					= -I include
 MLX_FLAGS				= -lmlx -framework OpenGL -framework Appkit
 
-SRC						= main.c parse.c utils.c validator.c
+SRC						= main.c parse.c utils.c validator.c set_mlx.c
 SRCS					= $(addprefix $(SRCS_DIR), $(SRC))
 OBJS					= $(SRCS:.c=.o)
 
@@ -63,5 +63,12 @@ test :
 	make -C $(GNL_DIR)
 	make -C $(MLX_DIR)
 	$(CC) -g -o $(NAME) $(SRCS) $(GNL_FLAGS) $(LIBFT_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+
+leak :
+	make -C $(LIBFT_DIR)
+	make -C $(GNL_DIR)
+	make -C $(MLX_DIR)
+	$(CC) -g3 -fsanitize=address -o $(NAME) $(SRCS) $(GNL_FLAGS) $(LIBFT_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+
 
 PHONY	: all clean fclean re bonus

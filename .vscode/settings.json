@@ -4,5 +4,9 @@
     "editor.renderWhitespace": "all",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "files.associations": {
+        "*.ejs": "html",
+        "mlx.h": "c"
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:21:47 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/13 20:12:03 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/15 16:02:07 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 typedef struct s_solong	t_solong;
 
+typedef struct s_img
+{
+	void	*img;
+	int		width;
+	int		height;
+}			t_img;
 typedef struct s_collect
 {
 	int	idx;
@@ -26,14 +32,16 @@ typedef struct s_col
 {
 	int			col_cnt;
 	int			top;
+	t_img		*img;
 	t_collect	*col_arr;
 }			t_col;
 typedef struct s_player
 {
-	int	x;
-	int	y;
-	int	score;
-	int	cnt;
+	int		x;
+	int		y;
+	int		score;
+	int		cnt;
+	t_img	*img;
 }		t_player;
 
 typedef struct s_map
@@ -41,6 +49,8 @@ typedef struct s_map
 	char		**map;
 	int			rows;
 	int			cols;
+	t_img		*tile_img;
+	t_img		*wall_img;
 	t_col		collect;
 	t_player	player;
 	int			is_escapable;

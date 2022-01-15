@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:36:13 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/13 16:43:42 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/15 18:45:53 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include "../lib/libft/libft.h"
 # include "../lib/get_next_line/get_next_line.h"
 
-# include "./utils.h"
 # include "./map.h"
 
 # define TRUE	1
@@ -30,6 +29,9 @@
 
 # define EXIT_ERR 1
 # define MAP_EXTENTION ".ber"
+
+# define IMG_PX 64
+# define IMG_PATH "./img/"
 
 typedef struct s_map	t_map;
 typedef struct s_solong
@@ -40,5 +42,10 @@ typedef struct s_solong
 }				t_solong;
 
 void	error_exit(char *str);
+void	set_mlx(t_solong *so_long);
+
+int		open_file(char *file);
+void	*save_img_xml(t_solong *so_long, char *str);
+void	put_img(t_solong *so_long, void *img_ptr, int x, int y);
 
 #endif

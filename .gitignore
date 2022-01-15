@@ -1,6 +1,7 @@
 so_long
 *.ber
 a.out.dSYM
+.DS_Store
 
 # Prerequisites
 *.d
