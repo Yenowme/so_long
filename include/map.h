@@ -6,15 +6,21 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:21:47 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/15 16:02:07 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/15 20:20:49 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
 # define MAP_H
 
-typedef struct s_solong	t_solong;
+# define PLAYER_IMGS 4;
 
+# define TOP 0
+# define RIGHT 1
+# define BOTTOM 2
+# define LEFT 3
+
+typedef struct s_solong	t_solong;
 typedef struct s_img
 {
 	void	*img;
@@ -32,7 +38,7 @@ typedef struct s_col
 {
 	int			col_cnt;
 	int			top;
-	t_img		*img;
+	t_img		img;
 	t_collect	*col_arr;
 }			t_col;
 typedef struct s_player
@@ -41,7 +47,7 @@ typedef struct s_player
 	int		y;
 	int		score;
 	int		cnt;
-	t_img	*img;
+	t_img	img[4];
 }		t_player;
 
 typedef struct s_map
@@ -49,8 +55,9 @@ typedef struct s_map
 	char		**map;
 	int			rows;
 	int			cols;
-	t_img		*tile_img;
-	t_img		*wall_img;
+	t_img		tile_img;
+	t_img		wall_img;
+	t_img		exit_img;
 	t_col		collect;
 	t_player	player;
 	int			is_escapable;

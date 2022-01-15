@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:02:08 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/15 19:41:22 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/15 20:21:36 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,15 @@ void	init_solong(t_solong *so_long)
 
 void	draw_tile(t_solong *so_long, int x, int y)
 {
-	put_img(so_long, so_long->map.tile_img, x, y);
+	put_img(so_long, so_long->map.tile_img.img, x, y);
+	if (so_long->map.map[y][x] == '1')
+		put_img(so_long, so_long->map.wall_img.img, x, y);
+	if (so_long->map.map[y][x] == 'C')
+		put_img(so_long, so_long->map.collect.img.img, x, y);
+	if (so_long->map.map[y][x] == 'E')
+		put_img(so_long, so_long->map.exit_img.img, x, y);
+	if (so_long->map.map[y][x] == 'P')
+		put_img(so_long, so_long->map.player.img[BOTTOM].img, x, y);
 }
 
 int	show_map(t_solong *so_long)
@@ -40,11 +48,10 @@ int	show_map(t_solong *so_long)
 		x = 0;
 		while (x < so_long->map.cols)
 		{
-			printf("y: %d", y);
 			draw_tile(so_long, x, y);
 			x++;
 		}
-		printf("\nx: %d\n", x);
+		printf("\n");
 		y++;
 	}
 	return (0);
