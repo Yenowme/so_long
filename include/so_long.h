@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:36:13 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/15 18:45:53 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/17 16:34:44 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,22 @@
 # define IMG_PX 64
 # define IMG_PATH "./img/"
 
+# define KEY_ESC			53
+# define KEY_W				13
+# define KEY_A				0
+# define KEY_S				1
+# define KEY_D				2
+# define KEY_UP				126
+# define KEY_LEFT			123
+# define KEY_DOWN			125
+# define KEY_RIGHT			124
+
 typedef struct s_map	t_map;
 typedef struct s_solong
 {
 	void	*mlx;
 	void	*win;
+	int		game_clear;
 	t_map	map;
 }				t_solong;
 
@@ -47,5 +58,7 @@ void	set_mlx(t_solong *so_long);
 int		open_file(char *file);
 void	*save_img_xml(t_solong *so_long, char *str);
 void	put_img(t_solong *so_long, void *img_ptr, int x, int y);
+
+int	key_event(int key_code, t_solong *so_long);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:54:27 by jeong-yena        #+#    #+#              #
-#    Updated: 2022/01/15 19:20:52 by jeong-yena       ###   ########.fr        #
+#    Updated: 2022/01/17 15:35:40 by jeong-yena       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ MLX_DIR					= ./mlx/
 INCS					= -I include
 MLX_FLAGS				= -lmlx -framework OpenGL -framework Appkit
 
-SRC						= main.c parse.c utils.c validator.c set_mlx.c
+SRC						= main.c parse.c utils.c validator.c set_mlx.c event.c
 SRCS					= $(addprefix $(SRCS_DIR), $(SRC))
 OBJS					= $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:27:31 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/14 19:55:05 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/17 16:59:15 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	malloc_map(t_solong *so_long)
 	}
 }
 
-void	parse_collect(t_solong *so_long, int row)
+static void	parse_element(t_solong *so_long, int row)
 {
-	char		*line;
-	t_collect	collect;
-	int			i;
+	char	*line;
+	int		top;
+	int		i;
 
 	line = so_long->map.map[row];
 	i = 0;
@@ -63,12 +63,16 @@ void	parse_collect(t_solong *so_long, int row)
 	{
 		if (line[i] == 'C')
 		{
-			collect = so_long->map.collect.col_arr[so_long->map.collect.top];
-			collect.idx = so_long->map.collect.top;
-			collect.x = row;
-			collect.y = i;
-			collect.is_touch = FALSE;
+			top = so_long->map.collect.top;
+			so_long->map.collect.col_arr[top].x = i;
+			so_long->map.collect.col_arr[top].y = row;
+			so_long->map.collect.col_arr[top].is_touch = FALSE;
 			so_long->map.collect.top++;
+		}
+		if (line[i] == 'P')
+		{
+			so_long->map.player.x = i;
+			so_long->map.player.y = row;
 		}
 		i++;
 	}
@@ -88,7 +92,7 @@ void	save_map(t_solong *so_long, char *file)
 			error_exit("file read err.\n");
 		ft_strlcpy(so_long->map.map[i], line, so_long->map.cols + 1);
 		check_wall(so_long, i);
-		parse_collect(so_long, i);
+		parse_element(so_long, i);
 		free(line);
 		i++;
 	}

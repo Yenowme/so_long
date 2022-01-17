@@ -6,19 +6,22 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:21:47 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/15 20:20:49 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/17 16:39:38 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
 # define MAP_H
 
-# define PLAYER_IMGS 4;
+# define DIR 4;
 
-# define TOP 0
+# define BOTTOM 0
 # define RIGHT 1
-# define BOTTOM 2
+# define TOP 2
 # define LEFT 3
+
+# define X 1
+# define Y 0
 
 typedef struct s_solong	t_solong;
 typedef struct s_img
@@ -29,7 +32,6 @@ typedef struct s_img
 }			t_img;
 typedef struct s_collect
 {
-	int	idx;
 	int	x;
 	int	y;
 	int	is_touch;
@@ -46,7 +48,9 @@ typedef struct s_player
 	int		x;
 	int		y;
 	int		score;
+	int		step;
 	int		cnt;
+	int		dir;
 	t_img	img[4];
 }		t_player;
 
@@ -60,6 +64,7 @@ typedef struct s_map
 	t_img		exit_img;
 	t_col		collect;
 	t_player	player;
+	int			offset[4][2];
 	int			is_escapable;
 }				t_map;
 
