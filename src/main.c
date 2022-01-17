@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:02:08 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/17 16:48:54 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/17 23:46:15 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,44 +23,16 @@ void	init_solong(t_solong *so_long)
 {
 	ft_bzero(so_long, sizeof(t_solong));
 	so_long->map.offset[TOP][Y] = -1;
-	so_long->map.offset[BOTTOM][Y] = +1;
+	so_long->map.offset[BOTTOM][Y] = 1;
 	so_long->map.offset[LEFT][X] = -1;
 	so_long->map.offset[RIGHT][X] = 1;
+	so_long->frame = FRAME;
 }
 
-void	draw_tile(t_solong *so_long, int x, int y)
+int	close_solong(t_solong *so_long)
 {
-	int	dir;
-
-	dir = so_long->map.player.dir;
-	put_img(so_long, so_long->map.tile_img.img, x, y);
-	if (so_long->map.map[y][x] == '1')
-		put_img(so_long, so_long->map.wall_img.img, x, y);
-	if (so_long->map.map[y][x] == 'C')
-		put_img(so_long, so_long->map.collect.img.img, x, y);
-	if (so_long->map.map[y][x] == 'E')
-		put_img(so_long, so_long->map.exit_img.img, x, y);
-	if (so_long->map.map[y][x] == 'P')
-		put_img(so_long, so_long->map.player.img[dir].img, x, y);
-}
-
-int	show_map(t_solong *so_long)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < so_long->map.rows)
-	{
-		x = 0;
-		while (x < so_long->map.cols)
-		{
-			draw_tile(so_long, x, y);
-			x++;
-		}
-		y++;
-	}
-	return (0);
+	mlx_destroy_window(so_long->mlx, so_long->win);
+	exit(0);
 }
 
 int	main(int argc, char **argv)
@@ -74,5 +46,6 @@ int	main(int argc, char **argv)
 	set_mlx(&so_long);
 	mlx_hook(so_long.win, 2, 0, &key_event, &so_long);
 	mlx_loop_hook(so_long.mlx, &show_map, &so_long);
+	mlx_hook(so_long.win, 17, 0, &close_solong, &so_long);
 	mlx_loop(so_long.mlx);
 }

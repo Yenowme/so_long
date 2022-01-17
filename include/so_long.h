@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:36:13 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/17 16:34:44 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/17 23:30:51 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,27 @@
 # define KEY_DOWN			125
 # define KEY_RIGHT			124
 
+# define FRAME				20
+
 typedef struct s_map	t_map;
 typedef struct s_solong
 {
 	void	*mlx;
 	void	*win;
 	int		game_clear;
+	int		frame;
 	t_map	map;
 }				t_solong;
 
 void	error_exit(char *str);
 void	set_mlx(t_solong *so_long);
+int		close_solong(t_solong *so_long);
 
 int		open_file(char *file);
 void	*save_img_xml(t_solong *so_long, char *str);
 void	put_img(t_solong *so_long, void *img_ptr, int x, int y);
 
-int	key_event(int key_code, t_solong *so_long);
+int		key_event(int key_code, t_solong *so_long);
+int		show_map(t_solong *so_long);
 
 #endif

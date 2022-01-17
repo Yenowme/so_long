@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:01:44 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/17 17:02:03 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/17 23:31:34 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void	move_player(t_solong *so_long, int dir)
 int	key_event(int key_code, t_solong *so_long)
 {
 	if (key_code == KEY_ESC)
-		exit(0);
+		close_solong(so_long);
 	if (key_code == KEY_W)
 		move_player(so_long, TOP);
 	if (key_code == KEY_A)
