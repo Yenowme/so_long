@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:02:08 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/17 23:46:15 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 18:19:30 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	init_solong(t_solong *so_long)
 	so_long->map.offset[BOTTOM][Y] = 1;
 	so_long->map.offset[LEFT][X] = -1;
 	so_long->map.offset[RIGHT][X] = 1;
-	so_long->frame = FRAME;
 }
 
 int	close_solong(t_solong *so_long)
