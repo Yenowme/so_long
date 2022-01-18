@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:21:03 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 00:15:17 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 15:24:37 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	check_map_element(t_solong *so_long, char c)
 		so_long->map.player.cnt++;
 	else if (c == 'E')
 		so_long->map.is_escapable = TRUE;
-	else if (c == 'B')
-		so_long->map.bats.bat_cnt++;
 	return (TRUE);
 }
 

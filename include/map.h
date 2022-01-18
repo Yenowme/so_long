@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:21:47 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 14:45:04 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 15:25:44 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,6 @@ typedef struct s_img
 	int		height;
 }		t_img;
 
-typedef struct s_bat
-{
-	int	x;
-	int	y;
-}		t_bat;
-
-typedef struct s_bats
-{
-	int		bat_cnt;
-	int		top;
-	int		img_type;
-	t_img	img[4];
-	t_bat	*arr;
-}		t_bats;
 typedef struct s_collect
 {
 	int	x;
@@ -80,7 +66,6 @@ typedef struct s_map
 	t_img		exit_img[2];
 	t_col		collect;
 	t_player	player;
-	t_bats		bats;
 	int			offset[4][2];
 	int			is_escapable;
 }				t_map;

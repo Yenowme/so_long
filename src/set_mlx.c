@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:59:12 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 14:49:46 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 15:25:09 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ static void	set_img(t_solong *so_long)
 	so_long->map.player.img[LEFT].img = save_img_xml(so_long, "cat_left.xpm");
 	so_long->map.player.img[RIGHT].img = save_img_xml(so_long, "cat_right.xpm");
 	so_long->map.collect.img.img = save_img_xml(so_long, "collect.xpm");
-	so_long->map.bats.img[0].img = save_img_xml(so_long, "enemy_1.xpm");
-	so_long->map.bats.img[1].img = save_img_xml(so_long, "enemy_2.xpm");
-	so_long->map.bats.img[2].img = save_img_xml(so_long, "enemy_3.xpm");
-	so_long->map.bats.img[3].img = save_img_xml(so_long, "enemy_4.xpm");
 }
 
 void	set_mlx(t_solong *so_long)

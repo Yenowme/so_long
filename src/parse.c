@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 12:27:31 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 00:25:38 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 15:22:09 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	malloc_map(t_solong *so_long)
 	so_long->map.map = (char **)malloc(sizeof(char *) * (so_long->map.rows));
 	so_long->map.collect.col_arr = (t_collect *)malloc(sizeof(t_collect)
 			* so_long->map.collect.col_cnt);
-	so_long->map.bats.arr = (t_bat *)malloc(sizeof(t_bat)
-			* so_long->map.bats.bat_cnt);
 	i = 0;
 	while (i < so_long->map.rows)
 	{

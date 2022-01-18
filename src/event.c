@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:01:44 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 14:42:09 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 15:24:10 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,6 @@ static int	check_new_player(t_solong *so_long)
 	{
 		check_exit(so_long);
 		return (FALSE);
-	}
-	if (so_long->map.map[y][x] == 'B')
-	{
-		printf("======game over========\n");
-		exit(0);
 	}
 	return (TRUE);
 }
