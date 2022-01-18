@@ -3,8 +3,6 @@ so_long
 a.out.dSYM
 .DS_Store
 so_long
-libft
-get_next_line
 
 # Prerequisites
 *.d
@@ -58,3 +56,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+*.dSYM
+so_long_bonus
