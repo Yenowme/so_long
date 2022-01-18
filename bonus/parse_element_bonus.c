@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_element.c                                    :+:      :+:    :+:   */
+/*   parse_element_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 00:25:41 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 00:37:57 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 16:13:43 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 static void	set_collect(t_solong *so_long, int y, int x)
 {

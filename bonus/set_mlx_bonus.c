@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_mlx.c                                          :+:      :+:    :+:   */
+/*   set_mlx_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:59:12 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 14:49:46 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 16:13:53 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 static void	set_window(t_solong *so_long)
 {

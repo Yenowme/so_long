@@ -6,7 +6,7 @@
 #    By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:54:27 by jeong-yena        #+#    #+#              #
-#    Updated: 2022/01/18 00:52:52 by jeong-yena       ###   ########.fr        #
+#    Updated: 2022/01/18 16:39:37 by jeong-yena       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,14 @@ SRC						= main.c parse.c utils.c validator.c set_mlx.c event.c parse_element.c 
 SRCS					= $(addprefix $(SRCS_DIR), $(SRC))
 OBJS					= $(SRCS:.c=.o)
 
+BONUS_NAME				= so_long_bonus
+BONUS_DIR				= ./bonus/
+BONUS_INCS_DIR			= ./include_bonus/
+BONUS_SRC				= main_bonus.c parse_bonus.c utils_bonus.c validator_bonus.c set_mlx_bonus.c \
+						event_bonus.c parse_element_bonus.c draw_bonus.c
+BONUS_SRCS				= $(addprefix $(BONUS_DIR), $(BONUS_SRC))
+BONUS_OBJS				= $(BONUS_SRCS:.c=.o)
+
 .c.o :
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -o $@ -c $?
 
@@ -50,13 +58,15 @@ all : $(NAME)
 clean :
 	make -C $(LIBFT_DIR) clean
 	make -C $(MLX_DIR) clean
-	$(RM) $(OBJS) $(OBJS_BONUS) a.out.dSYM
+	$(RM) $(OBJS) $(BONUS_OBJS) a.out.dSYM
 
 fclean : clean
 	make -C $(LIBFT_DIR) fclean
-	$(RM) $(NAME) $(NAME_BONUS) a.out.dSYM
+	$(RM) $(NAME) $(BONUS_OBJS) $(BONUS_NAME) a.out.dSYM
 
 re : fclean all
+
+bonus_re : fclean bonus
 
 test :
 	make -C $(LIBFT_DIR)
@@ -69,6 +79,14 @@ leak :
 	make -C $(GNL_DIR)
 	make -C $(MLX_DIR)
 	$(CC) -g3 -fsanitize=address -o $(NAME) $(SRCS) $(GNL_FLAGS) $(LIBFT_FLAGS) -I $(INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
+
+bonus : $(BONUS_NAME)
+
+$(BONUS_NAME) : $(BONUS_OBJS)
+	make -C $(LIBFT_DIR)
+	make -C $(GNL_DIR)
+	make -C $(MLX_DIR)
+	$(CC) -o $(BONUS_NAME) $(BONUS_OBJS) $(GNL_FLAGS) $(LIBFT_FLAGS) -I $(BONUS_INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
 
 
 PHONY	: all clean fclean re bonus

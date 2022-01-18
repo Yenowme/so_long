@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   utils_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:18:43 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/15 16:49:37 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 16:40:08 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef UTILS_BONUS_H
+# define UTILS_BONUS_H
 
-typedef s_solong	t_solong;
+typedef struct s_solong	t_solong;
 
 int		open_file(char *file);
 void	*save_img_xml(t_solong *so_long, char *str);

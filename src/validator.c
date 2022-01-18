@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:21:03 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 15:24:37 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 16:40:58 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_map_element(t_solong *so_long, char c)
 {
-	if ((c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E' && c != 'B'))
+	if ((c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E'))
 		return (FALSE);
 	if (c == 'C')
 		so_long->map.collect.col_cnt++;
