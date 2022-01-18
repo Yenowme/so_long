@@ -6,7 +6,7 @@
 #    By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:54:27 by jeong-yena        #+#    #+#              #
-#    Updated: 2022/01/18 16:52:37 by jeong-yena       ###   ########.fr        #
+#    Updated: 2022/01/18 22:03:08 by jeong-yena       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,6 @@ $(BONUS_NAME) : $(BONUS_OBJS)
 	$(CC) -o $(BONUS_NAME) $(BONUS_OBJS) $(GNL_FLAGS) $(LIBFT_FLAGS) -I $(BONUS_INCS_DIR) -L $(MLX_DIR) $(MLX_FLAGS)
 
 norm :
-	norminette $(SRCS) $(BONUS_SRCS) $(INCS_DIR)*.h $(BONUS_INCS_DIR)*.h
+	norminette $(SRCS) $(BONUS_SRCS) $(INCS_DIR) $(BONUS_INCS_DIR)
 
 PHONY	: all clean fclean re bonus
