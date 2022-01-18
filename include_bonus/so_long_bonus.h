@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:36:13 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 16:40:15 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 17:51:28 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 
 # define IMG_PX 64
 # define IMG_PATH "./img/"
+# define STEP_OFFSET 0
 
 # define KEY_ESC			53
 # define KEY_W				13
@@ -53,6 +54,7 @@ typedef struct s_solong
 	void	*win;
 	int		game_clear;
 	int		frame;
+	t_img	step_back;
 	t_map	map;
 }				t_solong;
 

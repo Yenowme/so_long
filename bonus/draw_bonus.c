@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 23:10:17 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 16:13:23 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 18:07:32 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,17 @@ static void	draw_tile(t_solong *so_long, int x, int y)
 			so_long->map.bats.img[so_long->map.bats.img_type].img, x, y);
 }
 
+void	draw_step(t_solong *so_long)
+{
+	char	*str;
+
+	str = ft_itoa(so_long->map.player.step);
+	mlx_put_image_to_window(so_long->mlx, so_long->win,
+		so_long->step_back.img, STEP_OFFSET, STEP_OFFSET);
+	mlx_string_put(so_long->mlx, so_long->win, 10, 20, 0xFF3D48, str);
+	free(str);
+}
+
 int	show_map(t_solong *so_long)
 {
 	int	x;
@@ -57,5 +68,6 @@ int	show_map(t_solong *so_long)
 		}
 		y++;
 	}
+	draw_step(so_long);
 	return (0);
 }

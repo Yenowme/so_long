@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:36:13 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 16:37:20 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 17:44:03 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_solong
 	void	*mlx;
 	void	*win;
 	int		game_clear;
-	int		frame;
 	t_map	map;
 }				t_solong;
 

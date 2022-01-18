@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:59:12 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/18 16:13:53 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 17:45:07 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	set_img(t_solong *so_long)
 	so_long->map.bats.img[1].img = save_img_xml(so_long, "enemy_2.xpm");
 	so_long->map.bats.img[2].img = save_img_xml(so_long, "enemy_3.xpm");
 	so_long->map.bats.img[3].img = save_img_xml(so_long, "enemy_4.xpm");
+	so_long->step_back.img = save_img_xml(so_long, "step.xpm");
 }
 
 void	set_mlx(t_solong *so_long)
