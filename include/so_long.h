@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:36:13 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/17 23:30:51 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 14:16:40 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define KEY_DOWN			125
 # define KEY_RIGHT			124
 
-# define FRAME				20
+# define FRAME				10
 
 typedef struct s_map	t_map;
 typedef struct s_solong

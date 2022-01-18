@@ -6,7 +6,7 @@
 /*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 23:10:17 by jeong-yena        #+#    #+#             */
-/*   Updated: 2022/01/17 23:10:39 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2022/01/18 14:17:53 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ static void	draw_tile(t_solong *so_long, int x, int y)
 		put_img(so_long, so_long->map.exit_img.img, x, y);
 	if (so_long->map.map[y][x] == 'P')
 		put_img(so_long, so_long->map.player.img[dir].img, x, y);
+	if (so_long->map.map[y][x] == 'B')
+		put_img(so_long,
+			so_long->map.bats.img[so_long->map.bats.img_type].img, x, y);
 }
 
 int	show_map(t_solong *so_long)
@@ -35,8 +38,10 @@ int	show_map(t_solong *so_long)
 
 	if (so_long->frame == FRAME)
 	{
-		printf("so..long%d\n", so_long->frame);
 		so_long->frame = 0;
+		so_long->map.bats.img_type++;
+		if (so_long->map.bats.img_type == 4)
+			so_long->map.bats.img_type = 0;
 	}
 	so_long->frame++;
 	y = 0;
